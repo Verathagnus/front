@@ -69,9 +69,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text("NewsAppName"),
       ),
-      body: Center(
-        child: Text(widget._pages[_currentPageIndex].title),
-      ),
+    //   body: Center(
+    //     child: Text(widget._pages[_currentPageIndex].title),
+    //   ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
