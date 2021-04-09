@@ -86,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
           children: <Widget>[
-              Expanded(
+              Center(
                   child: ReusableCard(colour: activeCardColour),
                 ),
           ],
