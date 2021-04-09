@@ -86,8 +86,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
           children: <Widget>[
-              Center(
-                  child: ReusableCard(colour: activeCardColour),
+              Expanded(
+                  child: ReusableCard(colour: activeCardColour, height: 80.0),
                 ),
           ],
       ),
@@ -119,14 +119,16 @@ class Page {
 
 
 class ReusableCard extends StatelessWidget {
-  ReusableCard({@required this.colour, this.cardChild});
+  ReusableCard({@required this.colour, this.cardChild, this.height});
   final Color colour;
   final Widget cardChild;
+  final int height;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: cardChild,
+      height: height,
       margin: EdgeInsets.all(15.0),
       decoration: BoxDecoration(
         color: colour,
