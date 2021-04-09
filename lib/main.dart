@@ -17,12 +17,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Drawer and Navigation',
-      
-    //   darkTheme: ThemeData.dark(),
-    //   theme: ThemeData(
-    //     primarySwatch: Colors.red,
-    //     accentColor: Colors.red,
-    //   ), 
+
+      //   darkTheme: ThemeData.dark(),
+      //   theme: ThemeData(
+      //     primarySwatch: Colors.red,
+      //     accentColor: Colors.red,
+      //   ),
       theme: ThemeData.dark().copyWith(
         accentColor: Colors.red,
         primaryColor: Colors.red,
@@ -35,12 +35,10 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   final List<Page> _pages = [
-    
     Page('Photos', Icons.camera_alt_outlined),
     Page('News', Icons.home_outlined),
     Page('Videos', Icons.play_circle_outline),
   ];
-
 
   MyHomePage({Key key}) : super(key: key);
 
@@ -61,8 +59,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     List<Widget> drawerItemWidgets = widget._pages
         .asMap()
-        .map((int index, Page page) =>
-        MapEntry<int, Widget>(index,
+        .map((int index, Page page) => MapEntry<int, Widget>(
+            index,
             ListTile(
               title: Text(page.title),
               leading: Icon(page.iconData),
@@ -71,9 +69,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 _openPage(index);
                 Navigator.pop(context);
               },
-            )
-        )
-    ).values.toList();
+            )))
+        .values
+        .toList();
     // drawerItemWidgets.insert(0, DrawerHeader(
     //   child: Text('Menu'),
     // //   decoration: BoxDecoration(
@@ -85,11 +83,11 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("NewsAppName"),
       ),
       body: Column(
-          children: <Widget>[
-              Expanded(
-                  child: ReusableCard(colour: activeCardColour, height: 80.0),
-                ),
-          ],
+        children: <Widget>[
+          Expanded(
+            child: ReusableCard(colour: activeCardColour, height: 80.0),
+          ),
+        ],
       ),
       drawer: Drawer(
         child: ListView(
@@ -99,13 +97,15 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentPageIndex,
-        items: widget._pages.map((Page page) =>
-            BottomNavigationBarItem(
-              icon: Icon(page.iconData),
-              title: Text(page.title),
-            )).toList(),
+        items: widget._pages
+            .map((Page page) => BottomNavigationBarItem(
+                  icon: Icon(page.iconData),
+                  title: Text(page.title),
+                ))
+            .toList(),
         onTap: _openPage,
-      ),);
+      ),
+    );
   }
 }
 
@@ -115,14 +115,11 @@ class Page {
   Page(this.title, this.iconData);
 }
 
-
-
-
 class ReusableCard extends StatelessWidget {
   ReusableCard({@required this.colour, this.cardChild, this.height});
   final Color colour;
   final Widget cardChild;
-  final int height;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
