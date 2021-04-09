@@ -1,4 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/painting/box_decoration.dart';
+import 'package:flutter/src/painting/border_radius.dart';
+import 'package:flutter/src/widgets/basic.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+const activeCardColour = Color(0xFF1D1E33);
+const bottomContainerColour = Color(0xFFEB1555);
 
 void main() => runApp(MyApp());
 
@@ -9,10 +19,16 @@ class MyApp extends StatelessWidget {
       title: 'Drawer and Navigation',
       
     //   darkTheme: ThemeData.dark(),
-      theme: ThemeData(
+    //   theme: ThemeData(
+    //     primarySwatch: Colors.red,
+    //     accentColor: Colors.red,
+    //   ), 
+      theme: ThemeData.dark().copyWith(
         primarySwatch: Colors.red,
         accentColor: Colors.red,
-      ), 
+        primaryColor: Color(0xFF0A0B21),
+        scaffoldBackgroundColor: Color(0xFF0A0B21),
+      ),
       home: MyHomePage(),
     );
   }
@@ -69,9 +85,13 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text("NewsAppName"),
       ),
-    //   body: Center(
-    //     child: Text(widget._pages[_currentPageIndex].title),
-    //   ),
+      body: Column(
+          children: <Widget>[
+              Expanded(
+                  child: ReusableCard(colour: activeCardColour),
+                ),
+          ],
+      ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -94,4 +114,25 @@ class Page {
   final String title;
   final IconData iconData;
   Page(this.title, this.iconData);
+}
+
+
+
+
+class ReusableCard extends StatelessWidget {
+  ReusableCard({@required this.colour, this.cardChild});
+  final Color colour;
+  final Widget cardChild;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: cardChild,
+      margin: EdgeInsets.all(15.0),
+      decoration: BoxDecoration(
+        color: colour,
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+    );
+  }
 }
