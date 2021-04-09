@@ -24,9 +24,8 @@ class MyApp extends StatelessWidget {
     //     accentColor: Colors.red,
     //   ), 
       theme: ThemeData.dark().copyWith(
-        primarySwatch: Colors.red,
         accentColor: Colors.red,
-        primaryColor: Color(0xFF0A0B21),
+        primaryColor: Colors.red,
         scaffoldBackgroundColor: Color(0xFF0A0B21),
       ),
       home: MyHomePage(),
