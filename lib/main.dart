@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         children: <Widget>[
 
-            child: ReusableCard(colour: activeCardColour, height: 80.0, width: double.infinity),
+            ReusableCard(colour: activeCardColour, height: 80.0, width: double.infinity),
 
         ],
       ),
