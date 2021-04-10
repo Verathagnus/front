@@ -122,7 +122,7 @@ class ReusableCard extends StatelessWidget {
   final Widget cardChild;
   final double height;
   final double width;
-  final Image image;
+  final String image;
 
   @override
   Widget build(BuildContext context) {
