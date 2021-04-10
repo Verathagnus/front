@@ -85,7 +85,14 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         children: <Widget>[
 
-            ReusableCard(colour: activeCardColour, height: 300.0, width: double.infinity),
+            ReusableCard(colour: activeCardColour, height: 300.0, width: double.infinity, 
+            cardChild: decoration: new BoxDecoration(
+                image: DecorationImage(
+                  image: new AssetImage(
+                     'assets/alucard.jpg'),
+                  fit: BoxFit.fill,
+                ),
+          ),),
 
         ],
       ),
@@ -134,5 +141,29 @@ class ReusableCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
       ),
     );
+  }
+}
+
+
+
+class NewsTab extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+  length: 3,
+  child: Scaffold(
+    appBar: AppBar(
+      bottom: TabBar(
+        tabs: [
+          Tab(text: Text('TOP NEWS')),
+          Tab(text: Text('CORONA VIRUS')),
+          Tab(text: Text('LATEST NEWS')),
+          Tab(text: Text('INDIA')),
+          Tab(text: Text('WORLD')),
+        ],
+      ),
+    ),
+  ),
+);
   }
 }
