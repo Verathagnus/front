@@ -155,11 +155,11 @@ class NewsTab extends StatelessWidget {
     appBar: AppBar(
       bottom: TabBar(
         tabs: [
-          Tab(text: Text('TOP NEWS')),
-          Tab(text: Text('CORONA VIRUS')),
-          Tab(text: Text('LATEST NEWS')),
-          Tab(text: Text('INDIA')),
-          Tab(text: Text('WORLD')),
+          Tab(text: 'TOP NEWS'),
+          Tab(text: 'CORONA VIRUS'),
+          Tab(text: 'LATEST NEWS'),
+          Tab(text: 'INDIA'),
+          Tab(text: 'WORLD'),
         ],
       ),
     ),
