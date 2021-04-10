@@ -116,6 +116,20 @@ class Page {
   Page(this.title, this.iconData);
 }
 
+enum TabItem { red, green, blue }
+
+const Map<TabItem, String> tabName = {
+  TabItem.news: 'NEWS',
+  TabItem.p: 'green',
+  TabItem.blue: 'blue',
+};
+
+const Map<TabItem, MaterialColor> activeTabColor = {
+  TabItem.red: Colors.red,
+  TabItem.green: Colors.green,
+  TabItem.blue: Colors.blue,
+};
+
 class ReusableCard extends StatelessWidget {
   ReusableCard({@required this.colour, this.cardChild, this.height, this.width, this.image});
   final Color colour;
