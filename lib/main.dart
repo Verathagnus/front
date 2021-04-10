@@ -86,13 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
 
             ReusableCard(colour: activeCardColour, height: 300.0, width: double.infinity, 
-            cardChild: decoration: new BoxDecoration(
-                image: DecorationImage(
-                  image: new AssetImage(
-                     'images/1.png'),
-                  fit: BoxFit.fill,
-                ),
-          ),),
+            image: 'images/1.png'),
 
         ],
       ),
@@ -123,11 +117,12 @@ class Page {
 }
 
 class ReusableCard extends StatelessWidget {
-  ReusableCard({@required this.colour, this.cardChild, this.height, this.width});
+  ReusableCard({@required this.colour, this.cardChild, this.height, this.width, this.image});
   final Color colour;
   final Widget cardChild;
   final double height;
   final double width;
+  final Image image;
 
   @override
   Widget build(BuildContext context) {
@@ -139,6 +134,10 @@ class ReusableCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: colour,
         borderRadius: BorderRadius.circular(10.0),
+        image: DecorationImage(
+                  image: AssetImage(image),
+                  fit: BoxFit.fill,
+                ),
       ),
     );
   }
