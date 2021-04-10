@@ -78,10 +78,12 @@ class _MyHomePageState extends State<MyHomePage> {
     // //     color: Colors.red,
     // //   ),
     // ),);
+    //TODO Different page for every navbar. Currently just showing one page for convenience
     return Scaffold(
       appBar: AppBar(
         title: Text("NewsAppName"),
       ),
+      //TODO automatic retrieval
       body: Column(
         children: <Widget>[
           ReusableCard(colour: activeCardColour, height: 300.0, width: double.infinity, image: 'images/1.png'),
