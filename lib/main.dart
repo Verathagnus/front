@@ -89,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
             cardChild: decoration: new BoxDecoration(
                 image: DecorationImage(
                   image: new AssetImage(
-                     'assets/alucard.jpg'),
+                     'images/1.png'),
                   fit: BoxFit.fill,
                 ),
           ),),
