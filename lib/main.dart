@@ -84,10 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: <Widget>[
-
-            ReusableCard(colour: activeCardColour, height: 300.0, width: double.infinity, 
-            image: 'images/1.png'),
-
+          ReusableCard(colour: activeCardColour, height: 300.0, width: double.infinity, image: 'images/1.png'),
         ],
       ),
       drawer: Drawer(
@@ -116,20 +113,6 @@ class Page {
   Page(this.title, this.iconData);
 }
 
-enum TabItem { red, green, blue }
-
-const Map<TabItem, String> tabName = {
-  TabItem.news: 'NEWS',
-  TabItem.p: 'green',
-  TabItem.blue: 'blue',
-};
-
-const Map<TabItem, MaterialColor> activeTabColor = {
-  TabItem.red: Colors.red,
-  TabItem.green: Colors.green,
-  TabItem.blue: Colors.blue,
-};
-
 class ReusableCard extends StatelessWidget {
   ReusableCard({@required this.colour, this.cardChild, this.height, this.width, this.image});
   final Color colour;
@@ -149,34 +132,32 @@ class ReusableCard extends StatelessWidget {
         color: colour,
         borderRadius: BorderRadius.circular(10.0),
         image: DecorationImage(
-                  image: AssetImage(image),
-                  fit: BoxFit.fill,
-                ),
+          image: AssetImage(image),
+          fit: BoxFit.fill,
+        ),
       ),
     );
   }
 }
 
-
-
 class NewsTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-  length: 3,
-  child: Scaffold(
-    appBar: AppBar(
-      bottom: TabBar(
-        tabs: [
-          Tab(text: 'TOP NEWS'),
-          Tab(text: 'CORONA VIRUS'),
-          Tab(text: 'LATEST NEWS'),
-          Tab(text: 'INDIA'),
-          Tab(text: 'WORLD'),
-        ],
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          bottom: TabBar(
+            tabs: [
+              Tab(text: 'TOP NEWS'),
+              Tab(text: 'CORONA VIRUS'),
+              Tab(text: 'LATEST NEWS'),
+              Tab(text: 'INDIA'),
+              Tab(text: 'WORLD'),
+            ],
+          ),
+        ),
       ),
-    ),
-  ),
-);
+    );
   }
 }
